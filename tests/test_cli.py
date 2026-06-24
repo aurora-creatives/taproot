@@ -1,3 +1,4 @@
+import re
 from unittest.mock import patch
 
 from typer.testing import CliRunner
@@ -5,6 +6,11 @@ from typer.testing import CliRunner
 from taproot.cli import app
 
 runner = CliRunner()
+
+
+def _plain(text: str) -> str:
+    """Strip ANSI escape codes so help-text assertions work in CI and locally."""
+    return re.sub(r"\x1b\[[0-9;]*[a-zA-Z]", "", text)
 
 
 def test_list_tickets_exits_zero():
@@ -31,17 +37,19 @@ def test_run_help_shows_options():
     """taproot run --help should show the expected options."""
     result = runner.invoke(app, ["run", "--help"])
     assert result.exit_code == 0
-    assert "--days" in result.output
-    assert "--service" in result.output
-    assert "--max-records" in result.output
+    out = _plain(result.output)
+    assert "--days" in out
+    assert "--service" in out
+    assert "--max-records" in out
 
 
 def test_list_tickets_help():
     """taproot list-tickets --help should show expected options."""
     result = runner.invoke(app, ["list-tickets", "--help"])
     assert result.exit_code == 0
-    assert "--days" in result.output
-    assert "--service" in result.output
+    out = _plain(result.output)
+    assert "--days" in out
+    assert "--service" in out
 
 
 def test_list_tickets_service_filter():

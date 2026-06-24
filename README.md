@@ -3,6 +3,7 @@
 **Finds the root beneath the noise.**  
 Surfaces ITSM problem records that should exist but don't.
 
+[![CI](https://github.com/aurora-creatives/taproot/actions/workflows/ci.yml/badge.svg)](https://github.com/aurora-creatives/taproot/actions/workflows/ci.yml)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Multi-provider](https://img.shields.io/badge/LLM-Anthropic%20%7C%20OpenAI%20%7C%20Azure%20%7C%20Bedrock-6B48FF)](https://github.com/aurora-creatives/taproot)

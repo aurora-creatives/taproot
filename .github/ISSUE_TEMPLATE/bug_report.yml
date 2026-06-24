@@ -1,0 +1,85 @@
+name: Bug report
+description: Something isn't working as expected
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please fill in as much detail as you can.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear description of the bug.
+      placeholder: "When I run `taproot run`, it..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Exact commands or actions to trigger the bug.
+      placeholder: |
+        1. Run `taproot run --days 90`
+        2. See error...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+      description: What should have happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant output / error
+      description: Paste any terminal output or traceback. Set `LOG_LEVEL=DEBUG` in `.env` for more detail.
+      render: shell
+
+  - type: dropdown
+    id: command
+    attributes:
+      label: Which command?
+      options:
+        - taproot run
+        - taproot review
+        - taproot list-tickets
+        - taproot list-problems
+        - Other / not CLI
+    validations:
+      required: true
+
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      placeholder: "e.g. 3.12.3"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: OS
+      options:
+        - macOS
+        - Linux
+        - Windows
+    validations:
+      required: true
+
+  - type: dropdown
+    id: data_mode
+    attributes:
+      label: Data mode
+      options:
+        - Mock data (USE_MOCK_DATA=true)
+        - Real ITSM (USE_MOCK_DATA=false)
+    validations:
+      required: true

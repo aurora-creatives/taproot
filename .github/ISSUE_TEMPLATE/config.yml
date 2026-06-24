@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://github.com/aurora-creatives/taproot/blob/main/docs/architecture.md
+    about: Read the architecture docs before opening an issue
+  - name: Discussions
+    url: https://github.com/aurora-creatives/taproot/discussions
+    about: Questions, ideas, and general conversation go here
